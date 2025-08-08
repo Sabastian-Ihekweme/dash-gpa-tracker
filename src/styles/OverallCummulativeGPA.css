@@ -1,0 +1,46 @@
+
+.gpa-circle {
+  width: 206px; 
+  height: 192px; 
+  background: #00000000; /* black */
+  border-radius: 9999px; 
+  border-width: 4px; 
+  border-color: #005EB833; /* primary-500 */
+  border-style: solid; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.cgpa-value {
+  width: 126px; 
+  height: 57px; 
+  font-family: Lato; /* Heading */
+  font-size: 48px; 
+  line-height: 48px; 
+  font-weight: 700; 
+  color: #005EB8FF; /* primary-500 */
+  margin-left: 4px;
+  margin: 0;
+  text-align: center;
+}
+
+.cgpa {
+  font-family: Roboto; /* Body */
+  font-size: 20px; 
+  line-height: 28px; 
+  font-weight: 400; 
+  color: #8C8D8BFF; 
+  margin: 0;
+}
+
+.total-credit-units {
+  font-family: Lato; /* Heading */
+  font-size: 30px; 
+  line-height: 36px; 
+  font-weight: 700; 
+  color: #242524FF;
+  margin: 0;
+}

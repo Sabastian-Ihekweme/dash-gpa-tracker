@@ -1,0 +1,98 @@
+
+.add-button {
+    margin-bottom: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.semester-box {
+  display: flex;
+  width: 350px; 
+  height: 65px; 
+  background: #FFFFFF0D; /* primary-500 */
+  border-radius: 8px; 
+  border-width: 1px; 
+  border-color: #DEE1E6FF; /* primary-500 */
+  border-style: solid; 
+  box-shadow: 0px 0px 1px #171a1f14, 0px 0px 2px #171a1f14; /* shadow-xs */
+  margin-bottom: 10px;
+
+}
+
+.semester-list {
+    overflow-y: auto;
+}
+
+@media (min-width: 1024px) {
+    .semester-box {
+        width: 849px;
+        height: 86px;
+    }
+}
+
+.semester-description {
+    margin-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 80%;
+    width: 40%;
+}
+
+.course-count {
+    margin: 0;
+}
+
+.semester-details {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.delete-button {
+    width: 20px;
+    height: 20px;
+    color: #8C8D8BFF;
+    background: none;
+    margin-left: 60px;
+}
+
+.delete-icon {
+    width: 25px;
+    height: 25px;
+}
+
+.delete-button:hover {
+    color: rgb(22, 22, 22);
+    background-color: #00000000;
+}
+
+.delete-button:hover::after {
+    background-color: #00000000;
+}
+
+.semester-gpa {
+  height: 28px; 
+  padding-left: 6px; 
+  padding-right: 6px; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  border-radius: 9999px;
+  background-color: #005EB81A;
+  color: #005EB8FF;
+  font-family: roboto;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 20px;
+  opacity: 1;
+}
+
+@media (min-width: 1024px) {
+    .semester-details {
+        margin-left: 300px;
+    }
+}

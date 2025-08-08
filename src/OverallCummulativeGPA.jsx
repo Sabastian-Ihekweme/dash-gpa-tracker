@@ -1,8 +1,9 @@
+import "./styles/OverallCummulativeGPA.css";
 
 function OverallCummulativeGPA() {
     return (
     <>
-        <div className="gpa-summary">
+        <div className="box1 container gpa-summary">
             <h2>Overall Cummulative GPA</h2>
 
             <div className="gpa-circle">
