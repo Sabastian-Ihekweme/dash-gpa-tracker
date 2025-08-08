@@ -1,4 +1,4 @@
-import OverallCummulativeGPA from './overallCummulativeGPA';
+import OverallCummulativeGPA from './OverallCummulativeGPA.jsx';
 import GPAScaleSettings from './GPAScaleSettings';
 import SemesterOverview from './SemesterOverview';
 import CourseOverview from './CourseOverview';
