@@ -1,6 +1,13 @@
+import React, { useEffect } from 'react';
+
 import './styles/GPAScaleSettings.css';
 
-function GPAScaleSettings() {
+function GPAScaleSettings({gpaScale, setGpaScale}) {
+
+    const handleChange = (event) => {
+        setGpaScale(event.target.value)
+    }
+
     return (
     <>
         <div className="box2 container scale-settings">
@@ -9,12 +16,12 @@ function GPAScaleSettings() {
             <p>Manage your grading scales</p>
 
             <div class="select-scale">
-                <p>Current Scale: <span class="scale">4.0 Scale</span></p>
+                <p>Current Scale: <span className="scale">{gpaScale} Scale</span></p>
 
                 <p className="select-scale">Select Scale:</p>
-                <select className="select-scale" placeholder="Select Scale">
-                    <option>4.0 Scale</option>
-                    <option>5.0 Scale</option>
+                <select className="select-scale" value={gpaScale} onChange={handleChange}>
+                    <option value="4.0">4.0 Scale</option>
+                    <option value="5.0">5.0 Scale</option>
                 </select>
             </div>
         </div>

@@ -1,3 +1,5 @@
+import React, {useState, useEffect} from 'react';
+
 import OverallCummulativeGPA from './OverallCummulativeGPA.jsx';
 import GPAScaleSettings from './GPAScaleSettings';
 import SemesterOverview from './SemesterOverview';
@@ -7,6 +9,14 @@ import logo from "./assets/dash-logo.png";
 
 function App() {
 
+  // GPA Scale
+  const [gpaScale, setGpaScale] = useState('4.0');
+
+  useEffect(() => {
+        console.log(gpaScale);
+    }, gpaScale);
+
+
   return (
     <>
       <div className="dashboard">
@@ -14,7 +24,7 @@ function App() {
         <img className="logo" src={logo} alt="dash-logo"/> <span className="title">DASH</span>
       </div>
       <OverallCummulativeGPA />
-      <GPAScaleSettings />
+      <GPAScaleSettings gpaScale={gpaScale} setGpaScale={setGpaScale}/>
       <SemesterOverview />
       <CourseOverview />
       </div>
