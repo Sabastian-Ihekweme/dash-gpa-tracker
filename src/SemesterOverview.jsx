@@ -1,13 +1,21 @@
+import React, {useState, useEffect} from 'react';
+
 import Semester from "./Semester";
 import './styles/SemesterOverview.css';
 
 function SemesterOverview({semesters, setSemesters, semester, course}) {
 
+    const [callIndex, setCallIndex] = useState(semesters[0].id);
 
     // Add new semester
     function addSemester() {
         setSemesters([semester, ...semesters]);
     }
+
+    // Set the call index to the latest semester object
+    useEffect(() => {
+        setCallIndex(semesters[0].id);
+    }, [semesters]);
 
 
     return (
@@ -21,7 +29,8 @@ function SemesterOverview({semesters, setSemesters, semester, course}) {
                     semesters.map(semester => {
                         return <li key={semester.id}>{<Semester 
                             semesters={semesters} setSemesters={setSemesters}
-                            semester={semester} id={semester.id} course={course}/>}</li>
+                            semester={semester} id={semester.id} course={course}
+                            callIndex={callIndex} setCallIndex={setCallIndex}/>}</li>
                     })
                 }
             </div>

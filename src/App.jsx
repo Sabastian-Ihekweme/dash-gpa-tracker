@@ -18,7 +18,8 @@ function App() {
     name: 'Semester',
     courseCount: 0,
     gpa: 0,
-    courses: []
+    courses: [],
+    selected: true
   }
 
   // Course object
