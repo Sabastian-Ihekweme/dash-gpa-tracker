@@ -15,7 +15,7 @@ function GPAScaleSettings({gpaScale, setGpaScale}) {
 
             <p>Manage your grading scales</p>
 
-            <div class="select-scale">
+            <div className="select-scale">
                 <p>Current Scale: <span className="scale">{gpaScale} Scale</span></p>
 
                 <p className="select-scale">Select Scale:</p>

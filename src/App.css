@@ -196,3 +196,7 @@ footer {
     margin-bottom: 10px;
     font-family: roboto;
 }
+
+li {
+  list-style-type: none;
+}

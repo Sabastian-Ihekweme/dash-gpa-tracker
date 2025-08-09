@@ -12,10 +12,26 @@ function App() {
   // GPA Scale
   const [gpaScale, setGpaScale] = useState('4.0');
 
-  useEffect(() => {
-        console.log(gpaScale);
-    }, gpaScale);
+  // Semester object
+  const semester = {
+    id: crypto.randomUUID(),
+    name: 'Semester',
+    courseCount: 0,
+    gpa: 0,
+    courses: []
+  }
 
+  // Course object
+  const course = {
+    courseCode: 'XXX101',
+    courseTitle: 0,
+    grade: 'A'
+  }
+
+  // Array of semesters
+  const [semesters, setSemesters] = useState([
+   semester
+  ]);
 
   return (
     <>
@@ -25,7 +41,8 @@ function App() {
       </div>
       <OverallCummulativeGPA />
       <GPAScaleSettings gpaScale={gpaScale} setGpaScale={setGpaScale}/>
-      <SemesterOverview />
+      <SemesterOverview semesters={semesters} setSemesters={setSemesters}
+      semester={semester} course={course}/>
       <CourseOverview />
       </div>
 

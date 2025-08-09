@@ -1,7 +1,23 @@
+import React, {useEffect} from 'react';
+
 import deleteicon from "./assets/icons/delete-icon.png";
 import './styles/SemesterOverview.css';
 
-function Semester() {
+function Semester({semesters, setSemesters, semester, id, course}) {
+
+    // Delete Semester
+    function deleteSemester(i) {
+        const newArray = semesters.filter(semester => {
+            return semester.id !== i;
+        })
+        setSemesters(newArray);
+    }
+
+    useEffect(() => {
+        console.log(semesters);
+    }, [semesters]);
+
+
     return (
     <>
         <div className="semester-box">
@@ -15,7 +31,7 @@ function Semester() {
                 GPA: 4.87
             </div>
 
-            <button className="delete-button">
+            <button onClick={() => deleteSemester(id)} className="delete-button">
                 <img className="delete-icon" src={deleteicon} ></img>
             </button>
             </div>
