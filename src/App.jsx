@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, createContext} from 'react';
 
 import OverallCummulativeGPA from './OverallCummulativeGPA.jsx';
 import GPAScaleSettings from './GPAScaleSettings';
@@ -24,13 +24,26 @@ function App() {
 
   // Course object
   const course = {
+    id: crypto.randomUUID(),
     courseCode: 'XXX101',
     courseTitle: 0,
     grade: 'A'
   }
 
   // Array of semesters
-  const [semesters, setSemesters] = useState([]);
+  const [semesters, setSemesters] = useState([
+    {
+    id: crypto.randomUUID(),
+    name: 'Semester',
+    courseCount: 0,
+    gpa: 0,
+    courses: [course, course, course],
+    selected: true
+  }
+  ]);
+
+  // Semester select index
+  const [callIndex, setCallIndex] = useState(semesters?.[0]?.id || null);
 
   return (
     <>
@@ -41,8 +54,9 @@ function App() {
       <OverallCummulativeGPA />
       <GPAScaleSettings gpaScale={gpaScale} setGpaScale={setGpaScale}/>
       <SemesterOverview semesters={semesters} setSemesters={setSemesters}
-      semester={semester} course={course}/>
-      <CourseOverview />
+      semester={semester} course={course} callIndex={callIndex} setCallIndex={setCallIndex}/>
+      <CourseOverview callIndex={callIndex} setCallIndex={setCallIndex} course={course}
+      semesters={semesters} setSemesters={setSemesters}/>
       </div>
 
       <footer>

@@ -24,7 +24,6 @@ function Semester({semesters, setSemesters, semester, id, course, callIndex,
     // Change semester name
     const handleChange = (event) => {
         const semesterName = event.target.value;
-        console.log(semesterName);
 
         //get the current semester object
         let currentSemester = null;
@@ -32,9 +31,10 @@ function Semester({semesters, setSemesters, semester, id, course, callIndex,
             currentSemester = semester.id === callIndex ? semester : currentSemester;
         });
             currentSemester.name = semesterName;
-            console.log(currentSemester);
-            console.log(semesters);
         };
+
+    // Course count
+    
 
 
     return (
@@ -45,7 +45,7 @@ function Semester({semesters, setSemesters, semester, id, course, callIndex,
 
                 <input onChange={handleChange}
                 type="text" name="course-title" placeholder={`Semester`}/>
-                <p className="course-count">5 courses</p>
+                <p className="course-count">{semester?.courses?.length} {semester?.courses.length == 1 ? 'Course' : 'Courses'}</p>
                 
             </div>
 

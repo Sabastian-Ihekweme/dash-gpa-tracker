@@ -1,14 +1,16 @@
 import './styles/CourseOverview.css';
 import deleteIcon from './assets/icons/delete-icon.png'; 
 
-function Course() {
+function Course({courseCode, courseTitle, grade}) {
+
+    // Change C
     return (
     <>
         <div className="course-box">
             <div className="course-description">
-                <input placeholder="SEN 203" 
+                <input placeholder="XXX 101" 
                 className="course-code" name="course-code" type="text"/>
-                <input placeholder="Discrete Structures" 
+                <input placeholder="Course Title" 
                 className="course-title" name="course-title" type="text"/>
             </div>
 

@@ -3,9 +3,9 @@ import React, {useState, useEffect} from 'react';
 import Semester from "./Semester";
 import './styles/SemesterOverview.css';
 
-function SemesterOverview({semesters, setSemesters, semester, course}) {
+function SemesterOverview({semesters, setSemesters, semester, course,
+     callIndex, setCallIndex}) {
 
-    const [callIndex, setCallIndex] = useState(semesters?.[0]?.id || null);
 
     // Add new semester
     function addSemester() {
@@ -13,15 +13,9 @@ function SemesterOverview({semesters, setSemesters, semester, course}) {
             const currentSemesters = Array.isArray(prev) ? prev : [];
             return [semester, ...currentSemesters]}
         );
+        setCallIndex(semesters[0].id);
     }
 
-
-    // Set the call index to the latest semester
-    useEffect(() => {
-        if (semesters?.[0]?.id) {
-            setCallIndex(semesters[0].id);
-        }
-    }, [semesters])
 
      // Safety check for semesters being an array
     const safeSemesters = Array.isArray(semesters) ? semesters : [];
