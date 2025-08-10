@@ -5,17 +5,26 @@ import './styles/SemesterOverview.css';
 
 function SemesterOverview({semesters, setSemesters, semester, course}) {
 
-    const [callIndex, setCallIndex] = useState(semesters[0].id);
+    const [callIndex, setCallIndex] = useState(semesters?.[0]?.id || null);
 
     // Add new semester
     function addSemester() {
-        setSemesters([semester, ...semesters]);
+        setSemesters(prev => {
+            const currentSemesters = Array.isArray(prev) ? prev : [];
+            return [semester, ...currentSemesters]}
+        );
     }
 
-    // Set the call index to the latest semester object
+
+    // Set the call index to the latest semester
     useEffect(() => {
-        setCallIndex(semesters[0].id);
-    }, [semesters]);
+        if (semesters?.[0]?.id) {
+            setCallIndex(semesters[0].id);
+        }
+    }, [semesters])
+
+     // Safety check for semesters being an array
+    const safeSemesters = Array.isArray(semesters) ? semesters : [];
 
 
     return (
@@ -25,8 +34,8 @@ function SemesterOverview({semesters, setSemesters, semester, course}) {
             <button className="add-button" onClick={addSemester}>+ Add New Semester</button>
 
             <div className="semester-list">
-                {
-                    semesters.map(semester => {
+                {  
+                    safeSemesters?.map(semester => {
                         return <li key={semester.id}>{<Semester 
                             semesters={semesters} setSemesters={setSemesters}
                             semester={semester} id={semester.id} course={course}

@@ -30,9 +30,7 @@ function App() {
   }
 
   // Array of semesters
-  const [semesters, setSemesters] = useState([
-   semester
-  ]);
+  const [semesters, setSemesters] = useState([]);
 
   return (
     <>

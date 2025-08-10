@@ -19,9 +19,22 @@ function Semester({semesters, setSemesters, semester, id, course, callIndex,
     function selectSemester() {
         // The selected of the object clicked should be set to true
         setCallIndex(id)
-        // The selected of every other object should be set to fale
     }
 
+    // Change semester name
+    const handleChange = (event) => {
+        const semesterName = event.target.value;
+        console.log(semesterName);
+
+        //get the current semester object
+        let currentSemester = null;
+        semesters.map(semester => {
+            currentSemester = semester.id === callIndex ? semester : currentSemester;
+        });
+            currentSemester.name = semesterName;
+            console.log(currentSemester);
+            console.log(semesters);
+        };
 
 
     return (
@@ -29,8 +42,11 @@ function Semester({semesters, setSemesters, semester, id, course, callIndex,
         <div className={callIndex == id ? "selected semester-box" : "semester-box"}
         onClick={selectSemester}>
             <div className="semester-description">
-                <input type="text" name="course-title" placeholder="Fall 2023"/>
+
+                <input onChange={handleChange}
+                type="text" name="course-title" placeholder={`Semester`}/>
                 <p className="course-count">5 courses</p>
+                
             </div>
 
             <div className="semester-details">
@@ -38,7 +54,7 @@ function Semester({semesters, setSemesters, semester, id, course, callIndex,
                 GPA: 4.87
             </div>
 
-            <button onClick={() => deleteSemester(id)} className="delete-button">
+            <button onClick={() => {deleteSemester(id)}} className="delete-button">
                 <img className="delete-icon" src={deleteicon} ></img>
             </button>
             </div>

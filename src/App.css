@@ -6,7 +6,7 @@ body {
 /* Header */
 
 .header {
-  position: absolute;
+  position: fixed;
   top: 0px; 
   left: -6px; 
   width: 439px; 
@@ -154,9 +154,7 @@ input {
 }
 
 @media (min-width: 1024px) {
-    input {
 
-    }
 }
 
 button {
