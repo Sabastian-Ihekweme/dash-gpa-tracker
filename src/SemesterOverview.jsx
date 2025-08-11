@@ -13,7 +13,7 @@ function SemesterOverview({semesters, setSemesters, semester, course,
             const currentSemesters = Array.isArray(prev) ? prev : [];
             return [semester, ...currentSemesters]}
         );
-        setCallIndex(semesters[0].id);
+        setCallIndex(semesters?.[0]?.id);
     }
 
 
@@ -38,7 +38,7 @@ function SemesterOverview({semesters, setSemesters, semester, course,
                 }
             </div>
 
-            <p>Click on a semester to view details</p>
+            <p>Click on a semester to view/add details</p>
         </div>
     </>
     )

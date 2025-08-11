@@ -31,16 +31,7 @@ function App() {
   }
 
   // Array of semesters
-  const [semesters, setSemesters] = useState([
-    {
-    id: crypto.randomUUID(),
-    name: 'Semester',
-    courseCount: 0,
-    gpa: 0,
-    courses: [course, course, course],
-    selected: true
-  }
-  ]);
+  const [semesters, setSemesters] = useState([]);
 
   // Semester select index
   const [callIndex, setCallIndex] = useState(semesters?.[0]?.id || null);

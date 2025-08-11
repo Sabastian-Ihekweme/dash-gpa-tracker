@@ -1,9 +1,36 @@
+import React, { useState, useEffect } from 'react';
+
 import './styles/CourseOverview.css';
 import deleteIcon from './assets/icons/delete-icon.png'; 
 
-function Course({courseCode, courseTitle, grade}) {
+function Course({courseCode, courseTitle, grade, semesters, setSemesters, 
+    course, callIndex, courseIndex, setCourseIndex}) {
 
-    // Change C
+
+    // Course select index 
+
+    // Delete course
+    function deleteCourse() {
+        setSemesters(prevSemesters => 
+            prevSemesters.map(semester =>
+                semester.id === callIndex
+                    ? {
+                        ...semester,
+                        courses: semester.courses.filter(c => c.id !== courseIndex)
+                    }
+                    : semester
+            )
+        );
+
+        setCourseIndex(undefined); // reset selection
+    }
+
+    // Handle course code change
+    function changeCourseCode() {
+        
+    }
+
+    
     return (
     <>
         <div className="course-box">
@@ -22,9 +49,10 @@ function Course({courseCode, courseTitle, grade}) {
                 <span className="grade-letter"><input className="grade" name="grade"
                 type="text" placeholder="A" /></span>
 
-                <button className="delete-button">
-                    <img className="delete-course delete-icon" src={deleteIcon}/>
+                <button onClick={deleteCourse} className="delete-button">
+                    <img className="delete-icon" src={deleteIcon}/>
                 </button>
+
             </div>
         </div>
     </>

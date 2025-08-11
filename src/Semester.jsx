@@ -17,7 +17,6 @@ function Semester({semesters, setSemesters, semester, id, course, callIndex,
 
     // Select semester
     function selectSemester() {
-        // The selected of the object clicked should be set to true
         setCallIndex(id)
     }
 

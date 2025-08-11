@@ -1,17 +1,16 @@
-import React, {useContext, useEffect} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 
 import Course from "./Course";
 import './styles/CourseOverview.css';
 
 function CourseOverview({callIndex, setCallIndex, course, semesters, setSemesters}) {
 
-    // Get current semester
-    const currentSemester = semesters?.find(s => s.id === callIndex);
-    console.log('Current Semester:', currentSemester?.name);
+    const [courseIndex, setCourseIndex] = useState();
 
-    useEffect(() => {
-        console.log(semesters);
-    }, [semesters]);
+    // Get current semester
+    let currentSemester = undefined;
+    currentSemester = semesters?.find(s => s.id === callIndex);
+    console.log('Current Semester:', currentSemester?.name);
 
 
     // Add Course 
@@ -24,22 +23,34 @@ function CourseOverview({callIndex, setCallIndex, course, semesters, setSemester
         })
     };
 
+
+
     return (
     <>
         <div className="box4 container course-summary">
-            <h2>Fall 2023 Courses</h2> <br />
-            <button onClick={() => addCourse(course)}>+ Add Course</button>
+            <h2>{currentSemester?.name || 'View'} Courses</h2> <br />
+            {currentSemester?.name && 
+                <button onClick={() => addCourse(course)}>+ Add Course</button>
+            }
 
             <div className="course-list">
             {
                 currentSemester?.courses?.map(course => {
-                    return <li key={course.id}><Course 
-                    courseCode={course.courseCode}
-                    courseTitle={course.courseTitle}
-                    grade={course.grade}/></li>
-                })
+                    return (
+                    currentSemester.id == callIndex ? 
+                    <li key={course?.id} onClick={() => setCourseIndex(course.id)}><Course
+                    course={course?.id} courseIndex={courseIndex}
+                    setCourseIndex={setCourseIndex}
+                    courseCode={course?.courseCode}
+                    courseTitle={course?.courseTitle}
+                    grade={course?.grade} semesters={semesters}
+                    setSemesters={setSemesters} callIndex={callIndex}/>
+                    </li> : ''
+                )})
             }
             </div>
+
+            <p>Double click course do delete</p>
             
         </div>
     </>
