@@ -4,7 +4,7 @@ import deleteicon from "./assets/icons/delete-icon.png";
 import './styles/SemesterOverview.css';
 
 function Semester({semesters, setSemesters, semester, id, course, callIndex, 
-    setCallIndex}) {
+    setCallIndex, gpa}) {
 
 
     // Delete Semester
@@ -50,7 +50,7 @@ function Semester({semesters, setSemesters, semester, id, course, callIndex,
 
             <div className="semester-details">
             <div className="semester-gpa">
-                GPA: 4.87
+                GPA: {gpa}
             </div>
 
             <button onClick={() => {deleteSemester(id)}} className="delete-button">

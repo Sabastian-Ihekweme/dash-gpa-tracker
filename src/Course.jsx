@@ -137,7 +137,7 @@ function Course({courseCode, courseTitle, grade, semesters, setSemesters,
                 className="course-credits" 
                 name="course-credits" 
                 type="number"
-                placeholder="3" />
+                placeholder="0" />
                 <span>Credits</span>
 
                 <span className="grade-letter">

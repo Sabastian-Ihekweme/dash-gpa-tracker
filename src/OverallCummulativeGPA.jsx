@@ -1,6 +1,6 @@
 import "./styles/OverallCummulativeGPA.css";
 
-function OverallCummulativeGPA() {
+function OverallCummulativeGPA({cgpa, setCgpa, totalCredits}) {
 
 
     return (
@@ -9,12 +9,12 @@ function OverallCummulativeGPA() {
             <h2>Overall Cummulative GPA</h2>
 
             <div className="gpa-circle">
-                <p className="cgpa-value">4.87</p>
+                <p className="cgpa-value">{cgpa}</p>
                 <p className="cgpa">CGPA</p>
             </div>
 
             <p>Total Credit Unites</p>
-            <p className="total-credit-units">60</p>
+            <p className="total-credit-units">{totalCredits}</p>
         </div>
     </>
     )

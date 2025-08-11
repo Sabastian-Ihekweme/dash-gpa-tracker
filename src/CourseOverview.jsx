@@ -27,7 +27,7 @@ function CourseOverview({callIndex, setCallIndex, course, semesters, setSemester
     return (
     <>
         <div className="box4 container course-summary">
-            <h2>{currentSemester?.name || 'View'} Courses</h2> <br />
+            <h2>Semester Courses</h2> <br />
             {currentSemester?.name && 
                 <button onClick={() => addCourse(course)}>+ Add Course</button>
             }
