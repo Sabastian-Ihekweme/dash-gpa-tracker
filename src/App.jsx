@@ -26,7 +26,8 @@ function App() {
   const course = {
     id: crypto.randomUUID(),
     courseCode: 'XXX101',
-    courseTitle: 0,
+    courseTitle: null,
+    courseCredits: 0,
     grade: 'A'
   }
 

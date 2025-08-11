@@ -10,7 +10,6 @@ function CourseOverview({callIndex, setCallIndex, course, semesters, setSemester
     // Get current semester
     let currentSemester = undefined;
     currentSemester = semesters?.find(s => s.id === callIndex);
-    console.log('Current Semester:', currentSemester?.name);
 
 
     // Add Course 
@@ -38,12 +37,16 @@ function CourseOverview({callIndex, setCallIndex, course, semesters, setSemester
                 currentSemester?.courses?.map(course => {
                     return (
                     currentSemester.id == callIndex ? 
-                    <li key={course?.id} onClick={() => setCourseIndex(course.id)}><Course
-                    course={course?.id} courseIndex={courseIndex}
+                    <li key={course?.id} onClick={() => setCourseIndex(course.id)}>
+                    <Course
+                    course={course?.id} 
+                    courseIndex={courseIndex}
                     setCourseIndex={setCourseIndex}
                     courseCode={course?.courseCode}
                     courseTitle={course?.courseTitle}
-                    grade={course?.grade} semesters={semesters}
+                    grade={course?.grade} 
+                    courseCredits={course?.courseCredits}
+                    semesters={semesters}
                     setSemesters={setSemesters} callIndex={callIndex}/>
                     </li> : ''
                 )})

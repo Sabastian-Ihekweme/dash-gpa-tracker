@@ -52,13 +52,15 @@
 }
 
 .grade {
-  width: 15px;
+  width: 35px;
   margin-left: 30px;
   font-family: Roboto; /* Body */
   font-size: 18px; 
   line-height: 28px; 
   font-weight: 700; 
   color: #005EB8FF; /* primary-500 */
+  outline: none;
+  border: none;
 }
 
 .delete-course {
