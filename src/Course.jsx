@@ -158,7 +158,7 @@ function Course({courseCode, courseTitle, grade, semesters, setSemesters,
                     </span>
 
                 <button onClick={deleteCourse} className="delete-button">
-                    <img className="delete-icon" src={deleteIcon}/>
+                    <img className="delete-icon delete-course" src={deleteIcon}/>
                 </button>
 
             </div>
